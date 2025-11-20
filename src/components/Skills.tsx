@@ -1,7 +1,7 @@
 'use client'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import HyperSpeed from "@/components/ui/HyperSpeed";
+import HyperSpeed from "@/components/ui/Hyperspeed";
 import Image from 'next/image';
 
 export default function SkillsSection() {

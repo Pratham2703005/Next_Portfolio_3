@@ -106,7 +106,7 @@ const Home = () => {
         </div>
       </section>
       <Projects />
-      <MyApproach />
+      {/* <MyApproach /> */}
       <Achievements />
       <Skills />
       <ContactEnhanced />
