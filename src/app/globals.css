@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Military Theme Variables */
+:root {
+  /* Military Color Palette */
+  --military-dark: #0a0e0d;
+  --military-base: #1a1f1e;
+  --military-olive: #3d4a3e;
+  --military-green: #4a5d4e;
+  --military-tactical: #ff6b35;
+  --military-accent: #00ff41;
+  --military-text: #c4d4c7;
+  --military-border: #2d3a2e;
+  
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Courier New', 'Consolas', monospace;
+  background: linear-gradient(135deg, var(--military-dark) 0%, var(--military-base) 100%);
+  color: var(--military-text);
+  letter-spacing: 0.5px;
+}
+
+/* Military Grid Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(61, 74, 62, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 74, 62, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Military UI Utilities */
+  .military-border {
+    border: 1px solid var(--military-border);
+  }
+  
+  .military-card {
+    background: rgba(26, 31, 30, 0.6);
+    border: 1px solid var(--military-border);
+    backdrop-filter: blur(10px);
+  }
+  
+  .military-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .military-hover:hover {
+    border-color: var(--military-accent);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  }
+}
+
+/* Military Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--military-base);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--military-olive);
+  border-radius: 0;
+  border: 1px solid var(--military-border);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--military-green);
+  box-shadow: 0 0 5px var(--military-accent);
+}
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+  var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
+
+@theme inline {
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --color-background: var(--military-dark);
+  --color-foreground: var(--military-text);
+}
+
+:root {
+  --radius: 0;
+  --background: #0a0e0d;
+  --foreground: #c4d4c7;
+  --border: #2d3a2e;
+  --ring: #00ff41;
+}
+
+.dark {
+  --background: #0a0e0d;
+  --foreground: #c4d4c7;
+  --border: #2d3a2e;
+}
+
+@layer base {
+  * {
+    border-color: #2d3a2e;
+    outline-color: rgba(0, 255, 65, 0.5);
+  }
+  body {
+    background-color: #0a0e0d;
+    color: #c4d4c7;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
