@@ -1,7 +1,4 @@
-'use client';
-
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import Footer from '@/components/shared/Footer';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
@@ -9,11 +6,6 @@ import ContactEnhanced from '@/components/ContactEnhanced';
 import { Boxes } from '@/components/ui/background-boxes';
 import AnimatedShapes from '@/components/ui/AnimatedShapes';
 import { Achievements } from '@/components/Achievements';
-
-const MyApproach = dynamic(() => import('@/components/MyApproach').then(mod => ({ default: mod.MyApproach })), {
-  ssr: false,
-  loading: () => <div className="py-20"></div>
-});
 
 const Home = () => {
   return (
