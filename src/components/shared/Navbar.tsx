@@ -1,13 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const [activeItem, setActiveItem] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -15,10 +12,6 @@ const Navbar = () => {
     { name: 'Skills', path: '#skills' },
     { name: 'Contact', path: '#contact' },
   ];
-
-  useEffect(() => {
-    setActiveItem(pathname);
-  }, [pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

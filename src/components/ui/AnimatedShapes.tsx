@@ -33,7 +33,7 @@ export default function AnimatedShapes() {
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 60 + 40;
-        this.type = ['circle', 'square', 'spiral', 'arc'][Math.floor(Math.random() * 5)] as any;
+        this.type = ['circle', 'square', 'zigzag', 'arc'][Math.floor(Math.random() * 4)] as 'circle' | 'square' | 'zigzag' | 'arc';
         this.speed = Math.random() * 0.3 + 0.1;
         this.angle = Math.random() * Math.PI * 2;
         this.rotation = 0;
@@ -67,7 +67,11 @@ export default function AnimatedShapes() {
             for (let i = 0; i < zigzagPoints; i++) {
               const x = (i / zigzagPoints - 0.5) * this.size * 2;
               const y = (i % 2 === 0 ? -1 : 1) * this.size / 2;
-              i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+              if (i === 0) {
+                ctx.moveTo(x, y);
+              } else {
+                ctx.lineTo(x, y);
+              }
             }
             ctx.stroke();
             break;
